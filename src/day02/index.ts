@@ -1,16 +1,7 @@
 import run from "aocrunner";
+import { dropLast, dropNth, range, zip } from "../utils/index.js";
 
 const parseInput = (rawInput: string) => rawInput.split("\n").map((line) => line.split(" ").map(Number));
-
-const range = (start: number, end?: number) =>
-  end
-    ? [...Array(end - start).keys()].map(d => d + start)
-    : [...Array(start).keys()];
-
-const zip = <T>(a: T[], b: T[]): T[][] => a.map((_, i) => [a[i], b[i]]);
-  
-const dropNth = <T>(arr: T[], i: number): T[] => arr.slice(0, i).concat(arr.slice(i + 1, arr.length));
-const dropLast = <T>(arr: T[]): T[] => dropNth(arr, arr.length - 1);
 
 const isSorted = row => (row.every(d => d > 0) || row.every(d => d < 0)) 
 const isInBounds = row => row.every(d => Math.abs(d) < 4 && Math.abs(d) > 0)

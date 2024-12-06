@@ -29,3 +29,34 @@
  *     import { myUtil } from '../utils'
  *
  */
+
+// find number of occurrences of a char in a string
+export const occurences = (str: string, char: string) => (str.match(new RegExp(char, "g")) || []).length;
+
+// return a list with only unique elements, uses mapping fn to find equality
+export const uniqueBy = <T>(items: T[], mapper: (item: T) => string) => {
+  const seen = new Set();
+  const result = [];
+  items.forEach((item) => {
+    const mapped = mapper(item);
+    if (!seen.has(mapped)) {
+      result.push(item);
+      seen.add(mapped);
+    }
+  });
+
+  return result;
+};
+
+export const isBetween = (n: number, a: number, b: number) => n >= a && n < b;
+
+
+export const range = (start: number, end?: number) =>
+  end
+    ? [...Array(end - start).keys()].map(d => d + start)
+    : [...Array(start).keys()];
+
+export const zip = <T>(a: T[], b: T[]): T[][] => a.map((_, i) => [a[i], b[i]]);
+  
+export const dropNth = <T>(arr: T[], i: number): T[] => arr.slice(0, i).concat(arr.slice(i + 1, arr.length));
+export const dropLast = <T>(arr: T[]): T[] => dropNth(arr, arr.length - 1);

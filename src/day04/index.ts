@@ -1,4 +1,5 @@
 import run from "aocrunner";
+import { isBetween } from "../utils/index.js";
 
 const parseInput = (rawInput: string) => rawInput.split("\n").map((d) => d.split(""));
 
@@ -13,8 +14,6 @@ const directions: Coord[] = [
   [-1, 1],
   [-1, 0],
 ];
-
-const isBetween = (n: number, a: number, b: number) => n >= a && n < b;
 
 const checker = (targetWord: string, mat: string[][]) => {
   const check = ([x, y]: Coord, [x1, y1]: Coord, targetIndex: number) => {
