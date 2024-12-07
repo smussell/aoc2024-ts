@@ -2,16 +2,20 @@ import run from "aocrunner";
 
 const parseInput = (rawInput: string) => rawInput;
 
-const mulRegEx = /mul\((\-?\d+),(\-?\d+)\)|do\(\)|don\'t\(\)/ig
+
 
 const part1 = (rawInput: string) => {
   const input = parseInput(rawInput);
 
+  const mulRegEx = /mul\((\-?\d+),(\-?\d+)\)/ig
+
   return [...input.matchAll(mulRegEx)].map(([_, num1, num2]) => [parseInt(num1, 10), parseInt(num2, 10)])
-    .reduce((a, [num1, num2]) => a + (num1 * num2), 0);
+    .reduce((a, [num1, num2]) => a + (num1 * num2), 0)
+    .toString();
 };
 
 const part2 = (rawInput: string) => {
+  const mulRegEx = /mul\((\-?\d+),(\-?\d+)\)|do\(\)|don\'t\(\)/ig
   const input = parseInput(rawInput);
   let active = true;
   let accum = 0;
