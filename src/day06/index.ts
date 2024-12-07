@@ -49,8 +49,6 @@ const VisitSet = () => {
   };
 };
 
-const MAX_MOVES = 50000;
-
 const doWalk = (
   dirInd: number,
   initial: Coord,
@@ -63,7 +61,7 @@ const doWalk = (
 
   let didExit = true;
 
-  for (let totMoves = 0; totMoves < MAX_MOVES; totMoves++) {
+  while (true) {
     const latestPos = visited.latestPos();
     const latestDir = visited.latestDir();
 
