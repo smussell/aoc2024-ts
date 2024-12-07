@@ -124,9 +124,9 @@ const part2 = (rawInput: string) => {
   positions.forEach((pos) => {
     const newMap = map.map((d) => d.slice());
     newMap[pos[1]][pos[0]] = Marker;
-    const [_, positions, didExit] = doWalk(dirInd, guardPos, newMap);
+    const [_, __, didExit] = doWalk(dirInd, guardPos, newMap);
 
-    if (!didExit || positions.length >= MAX_MOVES) {
+    if (!didExit) {
       obstructionLocCount++;
     }
   });
