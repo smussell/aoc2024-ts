@@ -60,3 +60,5 @@ export const zip = <T>(a: T[], b: T[]): T[][] => a.map((_, i) => [a[i], b[i]]);
   
 export const dropNth = <T>(arr: T[], i: number): T[] => arr.slice(0, i).concat(arr.slice(i + 1, arr.length));
 export const dropLast = <T>(arr: T[]): T[] => dropNth(arr, arr.length - 1);
+
+export const sum = (a: number, c: number) => a + c
